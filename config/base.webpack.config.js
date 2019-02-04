@@ -16,6 +16,8 @@ module.exports = {
             src: path.resolve("src"),
             app: path.resolve("src/app"),
             components: path.resolve("src/app/components"),
+            reducers: path.resolve("src/app/reducers"),
+            actions: path.resolve("src/app/actions"),
         }
     },
     module: {
