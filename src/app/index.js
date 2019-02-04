@@ -1,13 +1,15 @@
 import "./app.styl";
 import axios from "axios";
 import React, { Component } from "react";
+
 import { PokemonDisplay } from "components/PokemonDisplay";
+import { PokeTitle } from "components/PokeTitle";
 
 class App extends Component {
     state = {
         limit: 20,
         pokemon: [],
-        next: undefined
+        maxPokemon: 807,
     }
     requesting = false;
     constructor(){
@@ -44,6 +46,7 @@ class App extends Component {
     render() {
         return (
             <div className="App">
+                <PokeTitle>PokeDex</PokeTitle>
                 {this.state.pokemon.map((p, i) => (
                     <PokemonDisplay
                         id={i + 1}
