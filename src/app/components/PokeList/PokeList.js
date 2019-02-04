@@ -2,7 +2,7 @@ import "./PokeList.styl";
 import PropTypes from "prop-types";
 import React from "react";
 
-import { PokemonDisplay } from "components/PokemonDisplay";
+import { PokemonDisplayContainer } from "components/PokemonDisplay";
 
 const PokeList = ({ captured, pokemon, showCaptured }) => (
     <div className={"PokeList"}>
@@ -11,7 +11,7 @@ const PokeList = ({ captured, pokemon, showCaptured }) => (
             captured.indexOf(p.name) < 0
                 ? null
                 : (
-                    <PokemonDisplay
+                    <PokemonDisplayContainer
                         key={`pokemon-${p.name}`}
                         pokemon={p}
                     />

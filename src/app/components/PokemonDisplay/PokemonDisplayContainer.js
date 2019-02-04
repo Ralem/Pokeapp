@@ -1,26 +1,28 @@
+import { connect } from "react-redux";
+import { bindActionCreators } from "redux";
 import PropTypes from "prop-types";
-import React from "rect";
+import React from "react";
 
 import PokemonDisplay from "./PokemonDisplay";
 
-export default class PokemonDisplayContainer extends React.Component {
+class PokemonDisplayContainer extends React.Component {
     static propTypes = {
-        id: PropTypes.number,
-        name: PropTypes.string,
-        url: PropTypes.string
+        pokemon: PropTypes.shape({
+            name: PropTypes.string,
+            url: PropTypes.string
+        })
     };
     render(){
-        const {
-            id,
-            name,
-            url
-        } = this.props;
         return (
             <PokemonDisplay
-                id={id}
-                name={name}
-                url={url}
+                pokemon={this.props.pokemon}
             />
         );
     }
 };
+
+function mapDispatchToProps(dispatch){
+    return bindActionCreators({}, dispatch);
+};
+
+export default connect(null, mapDispatchToProps)(PokemonDisplayContainer);
