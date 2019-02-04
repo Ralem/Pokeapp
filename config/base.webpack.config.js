@@ -44,14 +44,6 @@ module.exports = {
                 ]
             },
             {
-                test: /\.styl(us)?$/,
-                use: [
-                    "style-loader",
-                    "css-loader",
-                    "stylus-loader"
-                ]
-            },
-            {
                 test: /\.html$/,
                 loader: [
                     {

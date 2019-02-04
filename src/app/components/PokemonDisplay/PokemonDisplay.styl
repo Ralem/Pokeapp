@@ -1,0 +1,22 @@
+.PokemonDisplay
+    position relative
+    width 196px
+    height @width
+    margin 20px
+    cursor pointer
+    background-color #525252
+    user-select none
+
+.PokemonDisplay-img
+    position absolute
+    left 50%
+    top 50%
+    max-width 50%
+    max-height 50%
+    transform translate(-50%, -50%)
+    opacity 0.5
+    transition 0.3s ease-in-out
+
+    .PokemonDisplay:hover &
+        transform translate(-50%, -50%) scale(1.5)
+        opacity 1

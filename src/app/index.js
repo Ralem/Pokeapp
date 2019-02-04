@@ -1,14 +1,7 @@
+import "./app.styl";
 import axios from "axios";
 import React, { Component } from "react";
-import { styled } from "styletron-react";
 import { PokemonDisplay } from "components/PokemonDisplay";
-
-const AppWrapper = styled("section", {
-    height: "100%",
-    width: "100%",
-    backgroundColor: "red",
-    overflow: "auto"
-});
 
 class App extends Component {
     state = {
@@ -50,7 +43,7 @@ class App extends Component {
     }
     render() {
         return (
-            <AppWrapper>
+            <div className="App">
                 {this.state.pokemon.map((p, i) => (
                     <PokemonDisplay
                         id={i + 1}
@@ -59,7 +52,7 @@ class App extends Component {
                         onClick={this.getPokemonList}
                     />
                 ))}
-            </AppWrapper>
+            </div>
         );
     }
 };

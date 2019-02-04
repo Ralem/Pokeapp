@@ -18,6 +18,14 @@ module.exports = webpackMerge( baseWebpackConfig, {
     module: {
         rules: [
             {
+                test: /\.styl(us)?$/,
+                use: [
+                    "style-loader",
+                    "css-loader",
+                    "stylus-loader"
+                ]
+            },
+            {
                 test: /\.(png|jpg|gif)$/i,
                 loader: "url-loader",
                 options: {

@@ -1,30 +1,6 @@
 import PropTypes from "prop-types";
 import React from "react";
-import { styled } from "styletron-react";
-
-const StyledImg = styled("img", {
-    position: "absolute",
-    left: "50%",
-    top: "50%",
-    maxWidth: "100%",
-    maxHeight: "100%",
-    transform: "translate(-50%, -50%)",
-    opacity: 0.6,
-    ":hover": {
-        opacity: 1,
-        transform: "translate(-50%, -50%) scale(1.5)"
-    }
-});
-
-const PokemonDisplayWrapper = styled("div", {
-    position: "relative",
-    width: "196px",
-    height: "196px",
-    margin: "20px",
-    backgroundColor: "#525252",
-    userSelect: "none",
-    cursor: "pointer",
-});
+import "./PokemonDisplay.styl";
 
 const spriteSources = {
     "default": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/$pkid.png",
@@ -33,11 +9,11 @@ const spriteSources = {
 }
 
 const PokemonDisplay = React.forwardRef(({ id, name, onClick, url }, ref) => (
-    <PokemonDisplayWrapper onClick={onClick}>
+    <div className="PokemonDisplay" onClick={onClick}>
         <p>{id.toString().padStart(3, "0")}</p>
         <a href={url} target="_blank" rel="noopener noreferrer">{name}</a>
-        <StyledImg src={spriteSources.default.replace(/\$pkid/g, id)}></StyledImg>
-    </PokemonDisplayWrapper>
+        <img className="PokemonDisplay-img" src={spriteSources.default.replace(/\$pkid/g, id)}></img>
+    </div>
 ));
 PokemonDisplay.displayName = "PokemonDisplay";
 PokemonDisplay.propTypes = {
