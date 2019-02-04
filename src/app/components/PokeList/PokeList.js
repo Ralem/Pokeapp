@@ -4,8 +4,8 @@ import React from "react";
 
 import { PokemonDisplayContainer } from "components/PokemonDisplay";
 
-const PokeList = ({ captured, pokemon, showCaptured }) => (
-    <div className={"PokeList"}>
+const PokeList = React.forwardRef(({ captured, pokemon, showCaptured }, ref) => (
+    <div className={"PokeList"} ref={ref}>
         {pokemon.map(p => (
             showCaptured &&
             captured.indexOf(p.name) < 0
@@ -18,7 +18,7 @@ const PokeList = ({ captured, pokemon, showCaptured }) => (
                 )
         ))}
     </div>
-);
+));
 PokeList.displayName = "PokeList";
 PokeList.propTypes = {
     captured: PropTypes.array,

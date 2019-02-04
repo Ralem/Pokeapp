@@ -12,6 +12,14 @@ class PokeListContainer extends React.Component {
         })),
         selected: PropTypes.array
     }
+    PokeListRef = React.createRef()
+    componentDidUpdate(){
+        const poke = this.PokeListRef.current.querySelectorAll(".PokemonDisplay");
+        const lastPoke = poke[poke.length - 1];
+        const windowHeight = window.innerHeight;
+        console.log(lastPoke);
+        if (lastPoke.getBoundingClientRect().bottom < windowHeight) console.log("load");
+    }
     render() {
         const {
             selected,
@@ -21,6 +29,7 @@ class PokeListContainer extends React.Component {
             <PokeList
                 captured={selected}
                 pokemon={pokemon}
+                ref={this.PokeListRef}
             />
         );
     }

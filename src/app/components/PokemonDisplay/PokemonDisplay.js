@@ -2,6 +2,8 @@ import PropTypes from "prop-types";
 import React from "react";
 import "./PokemonDisplay.styl";
 
+import { CapturedSelectContainer } from "components/CapturedSelect";
+
 const spriteSources = {
     "default": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/$pkid.png",
     "pokeres": "https://pokeres.bastionbot.org/images/pokemon/$pkid.png",
@@ -33,6 +35,7 @@ const PokemonDisplay = React.forwardRef(({ pokemon, onClick }, ref) => {
                 target="_blank"
                 rel="noopener noreferrer"
             >{pokemon.name.replace(/-m/, "♂").replace(/-f/, "♀")}</a>
+            <CapturedSelectContainer pokemon={pokemon}/>
         </div>
     )
 });
