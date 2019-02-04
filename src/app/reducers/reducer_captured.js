@@ -1,7 +1,7 @@
 import {
-    FAVORITES_ADD,
-    FAVORITES_REMOVE
-} from "actions/actions_favorites";
+    CAPTURED_ADD,
+    CAPTURED_REMOVE
+} from "actions/actions_captured";
 
 const initialState = {
     selected: [],
@@ -9,9 +9,9 @@ const initialState = {
 
 export default function(state = initialState, { type, payload }){
     switch (type) {
-        case FAVORITES_ADD:
+        case CAPTURED_ADD:
             return { ...state, selected: [ ...state.selected, payload ] };
-        case FAVORITES_REMOVE:
+        case CAPTURED_REMOVE:
             return {
                 ...state,
                 selected: [

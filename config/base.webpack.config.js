@@ -1,6 +1,7 @@
 "use strict"
 
 const path = require("path");
+const stylusLoader = require("stylus-loader");
 
 function resolve(dir) {
     return path.join(__dirname, "..", dir);
@@ -58,4 +59,16 @@ module.exports = {
             }
         ]
     },
+    plugins: [
+        new stylusLoader.OptionsPlugin({
+            default: {
+                use: [
+                    require("nib")
+                ],
+                import: [
+                    '~nib/lib/nib/index.styl',
+                ]
+            }
+        })
+    ]
 };

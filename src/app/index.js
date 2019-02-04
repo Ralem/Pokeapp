@@ -2,7 +2,7 @@ import "./app.styl";
 import axios from "axios";
 import React, { Component } from "react";
 
-import { PokemonDisplay } from "components/PokemonDisplay";
+import { PokeListContainer } from "components/PokeList";
 import { PokeTitle } from "components/PokeTitle";
 
 class App extends Component {
@@ -47,14 +47,7 @@ class App extends Component {
         return (
             <div className="App">
                 <PokeTitle>PokeDex</PokeTitle>
-                {this.state.pokemon.map((p, i) => (
-                    <PokemonDisplay
-                        id={i + 1}
-                        key={`pokemon-${i}`}
-                        name={p.name}
-                        onClick={this.getPokemonList}
-                    />
-                ))}
+                <PokeListContainer pokemon={this.state.pokemon}/>
             </div>
         );
     }

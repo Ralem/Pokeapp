@@ -1,11 +1,11 @@
 import { combineReducers } from "redux";
 
 import app from "./reducer_app";
-import favorites from "./reducer_favorites";
+import captured from "./reducer_captured";
 
 const rootReducer = combineReducers({
     app,
-    favorites
+    captured
 });
 
 export default rootReducer;
