@@ -5,14 +5,25 @@ import "./PokemonDisplay.styl";
 const spriteSources = {
     "default": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/$pkid.png",
     "pokeres": "https://pokeres.bastionbot.org/images/pokemon/$pkid.png",
-    "go": "https://raw.githubusercontent.com/ZeChrales/PogoAssets/master/pokemon_icons/pokemon_icon_$pkid_00.png"
+    "official": "https://assets.pokemon.com/assets/cms2/img/pokedex/detail/$pkid.png"
 }
 
 const PokemonDisplay = React.forwardRef(({ id, name, onClick, url }, ref) => (
-    <div className="PokemonDisplay" onClick={onClick}>
-        <p>{id.toString().padStart(3, "0")}</p>
-        <a href={url} target="_blank" rel="noopener noreferrer">{name}</a>
-        <img className="PokemonDisplay-img" src={spriteSources.default.replace(/\$pkid/g, id)}></img>
+    <div
+        className="PokemonDisplay"
+        onClick={onClick}
+    >
+        <p className="PokemonDisplay-number">{id.toString().padStart(3, "0")}</p>
+        <img
+            className="PokemonDisplay-img"
+            src={spriteSources.official.replace(/\$pkid/g, id.toString().padStart(3, "0"))}
+        ></img>
+        <a
+            className="PokemonDisplay-name"
+            href={url}
+            target="_blank"
+            rel="noopener noreferrer"
+        >{name.replace(/-m/, "♂").replace(/-f/, "♀")}</a>
     </div>
 ));
 PokemonDisplay.displayName = "PokemonDisplay";
