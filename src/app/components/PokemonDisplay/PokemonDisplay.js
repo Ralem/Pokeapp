@@ -18,7 +18,7 @@ function getId(pokemon) {
     ;
 }
 
-const PokemonDisplay = React.forwardRef(({ pokemon, onClick }, ref) => {
+const PokemonDisplay = React.forwardRef(({ pokemon, onClick, onImgClick }, ref) => {
     const id = getId(pokemon);
     return (
         <div
@@ -28,6 +28,7 @@ const PokemonDisplay = React.forwardRef(({ pokemon, onClick }, ref) => {
             <p className="PokemonDisplay-number">{id.toString().padStart(3, "0")}</p>
             <img
                 className="PokemonDisplay-img"
+                onClick={onImgClick}
                 src={spriteSources.official.replace(/\$pkid/g, id.toString().padStart(3, "0"))}
             ></img>
             <a
@@ -43,6 +44,7 @@ const PokemonDisplay = React.forwardRef(({ pokemon, onClick }, ref) => {
 PokemonDisplay.displayName = "PokemonDisplay";
 PokemonDisplay.propTypes = {
     onClick: PropTypes.func,
+    onImgClick: PropTypes.func,
     pokemon: PropTypes.shape({
         name: PropTypes.string.isRequired,
         url: PropTypes.string.isRequired
