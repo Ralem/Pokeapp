@@ -5,8 +5,9 @@ import "./PokemonDisplay.styl";
 import { CapturedSelectContainer } from "components/CapturedSelect";
 
 const spriteSources = {
+    // Pad 0
     "default": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/$pkid.png",
-    "pokeres": "https://pokeres.bastionbot.org/images/pokemon/$pkid.png",
+    // Pad 3
     "official": "https://assets.pokemon.com/assets/cms2/img/pokedex/detail/$pkid.png"
 }
 
