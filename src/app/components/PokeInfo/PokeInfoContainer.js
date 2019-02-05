@@ -12,7 +12,7 @@ export class PokeInfoContainer extends React.Component {
         pokemon: {}
     };
     async componentDidMount(){
-        const request = await axios.get("https://pokeapi.co/api/v2/pokemon/1/");
+        const request = await axios.get("https://pokeapi.co/api/v2/pokemon/6/");
         this.setState({
             pokemon: request.data,
         })

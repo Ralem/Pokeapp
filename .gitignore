@@ -131,3 +131,4 @@ typings/
 # Ignore build folder
 dist
 /dist/**
+!**/components/Icon/
