@@ -1,6 +1,7 @@
 import "@babel/polyfill";
 import 'sanitize.css';
 import "./globalStyles.styl";
+import "gsap";
 import { Provider } from "react-redux";
 import React from "react";
 import { render } from "react-dom";

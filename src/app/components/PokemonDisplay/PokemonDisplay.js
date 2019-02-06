@@ -1,8 +1,8 @@
 import PropTypes from "prop-types";
 import React from "react";
-import "./PokemonDisplay.styl";
 
 import { CapturedSelectContainer } from "components/CapturedSelect";
+import "./PokemonDisplay.styl";
 
 const spriteSources = {
     // Pad 0
@@ -31,13 +31,13 @@ const PokemonDisplay = React.forwardRef(({ pokemon, onClick, onImgClick }, ref) 
                 onClick={onImgClick}
                 src={spriteSources.official.replace(/\$pkid/g, id.toString().padStart(3, "0"))}
             ></img>
-            <a
-                className="PokemonDisplay-name"
-                href={pokemon.url}
-                target="_blank"
-                rel="noopener noreferrer"
-            >{pokemon.name.replace(/-m/, "♂").replace(/-f/, "♀")}</a>
-            <CapturedSelectContainer pokemon={pokemon}/>
+            <div className="PokemonDisplay-controls">
+                <CapturedSelectContainer
+                    addClass={"PokemonDisplay-CapturedSelect"}
+                    pokemon={pokemon}
+                />
+                <p className="PokemonDisplay-name">{pokemon.name}</p>
+            </div>
         </div>
     )
 });

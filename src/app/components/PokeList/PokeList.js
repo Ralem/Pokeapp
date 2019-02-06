@@ -6,17 +6,18 @@ import { PokemonDisplayContainer } from "components/PokemonDisplay";
 
 const PokeList = React.forwardRef(({ captured, pokemon, showCaptured }, ref) => (
     <div className={"PokeList"} ref={ref}>
-        {pokemon.map(p => (
-            showCaptured &&
-            captured.indexOf(p.name) < 0
-                ? null
+        {
+            showCaptured
+                ? (<div></div>)
                 : (
-                    <PokemonDisplayContainer
-                        key={`pokemon-${p.name}`}
-                        pokemon={p}
-                    />
+                    pokemon.map(p => (
+                        <PokemonDisplayContainer
+                            key={`poke-${p.name}`}
+                            pokemon={p}
+                        />
+                    ))
                 )
-        ))}
+        }
     </div>
 ));
 PokeList.displayName = "PokeList";
