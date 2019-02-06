@@ -1,6 +1,6 @@
 {
   "name": "pokeapp",
-  "version": "1.0.0",
+  "version": "0.0.0",
   "description": "A simple Pokemon listing app",
   "main": "./src/app.js",
   "author": "Alep",
