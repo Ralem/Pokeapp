@@ -5,19 +5,17 @@ import React from "react";
 import { PokemonDisplayContainer } from "components/PokemonDisplay";
 
 const PokeList = React.forwardRef(({ captured, pokemon, showCaptured }, ref) => {
-    captured = captured || [];
     return (
         <div className={"PokeList"} ref={ref}>
             {
                 showCaptured
                     ? (
-                        captured.map(c => {
-                            const p = JSON.parse(c);
-                            return <PokemonDisplayContainer
-                                key={`poke-${p.name}`}
-                                pokemon={p}
+                        (Object.entries(captured)).sort((a, b) => a[1].id - b[1].id).map(([ name, pokemon ]) => (
+                            <PokemonDisplayContainer
+                                key={`pokemon-${name}`}
+                                pokemon={pokemon}
                             />
-                        })
+                        ))
                     )
                     : (
                         pokemon.map(p => (
@@ -33,7 +31,7 @@ const PokeList = React.forwardRef(({ captured, pokemon, showCaptured }, ref) => 
 });
 PokeList.displayName = "PokeList";
 PokeList.propTypes = {
-    captured: PropTypes.array,
+    captured: PropTypes.object,
     pokemon: PropTypes.arrayOf(PropTypes.shape({
         name: PropTypes.string,
         url: PropTypes.string

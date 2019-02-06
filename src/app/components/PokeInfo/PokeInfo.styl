@@ -50,6 +50,11 @@
 
 .PokeInfo-picture-controls
     position relative
+    display flex
+    flex-flow row wrap
+    justify-content center
+    align-items flex-end
+    align-items flex-end
     width 100%
     height 40px
     background-color #f2f2f2
@@ -57,7 +62,7 @@
     &:before
         position absolute
         content ""
-        width 50px
+        width 150px
         height 100%
         left 50%
         top 0
@@ -72,8 +77,16 @@
     height @width
     font-size @width - 10px
     left 50%
-    top 50%
+    top 0
     transform translate(-50%, -50%)
+
+.PokeInfo-picture-controls-legend
+    position relative
+    margin 0
+    margin-bottom 6px
+    font-weight 700
+    font-size 14px
+    text-align center
 
 .PokeInfo-img
     display block
