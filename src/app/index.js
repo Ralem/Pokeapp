@@ -1,10 +1,12 @@
 import "./app.styl";
 import React, { Component } from "react";
 
+import { AppOverlayContainer } from "components/AppOverlay";
 import { CapturedToggle } from "components/CapturedToggle";
 import { PokeListContainer } from "components/PokeList";
 import { PokeTitle } from "components/PokeTitle";
 import { PokeInfoContainer } from "components/PokeInfo";
+import { PopupContainer } from "components/Popup";
 
 class App extends Component {
     render() {
@@ -12,8 +14,11 @@ class App extends Component {
             <div className="App">
                 <PokeTitle>PokeDex</PokeTitle>
                 <CapturedToggle/>
-                <PokeInfoContainer/>
                 <PokeListContainer/>
+                <AppOverlayContainer/>
+                <PopupContainer>
+                    <PokeInfoContainer/>
+                </PopupContainer>
             </div>
         );
     }

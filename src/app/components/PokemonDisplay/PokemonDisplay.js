@@ -25,7 +25,7 @@ const PokemonDisplay = React.forwardRef(({ pokemon, onClick, onImgClick }, ref) 
             className="PokemonDisplay"
             onClick={onClick}
         >
-            <p className="PokemonDisplay-number">{id.toString().padStart(3, "0")}</p>
+            <p className="PokemonDisplay-number">#{id.toString().padStart(3, "0")}</p>
             <img
                 className="PokemonDisplay-img"
                 draggable={false}
