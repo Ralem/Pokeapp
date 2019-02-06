@@ -1,6 +1,6 @@
 {
   "name": "pokeapp",
-  "version": "1.0.0",
+  "version": "0.0.0",
   "description": "A simple Pokemon listing app",
   "main": "./src/app.js",
   "author": "Alep",
@@ -56,11 +56,15 @@
   },
   "dependencies": {
     "@babel/polyfill": "^7.2.5",
+    "axios": "^0.18.0",
+    "gsap": "^2.0.2",
+    "ismobilejs": "^0.5.1",
+    "nib": "^1.1.2",
     "react": "^16.7.0",
     "react-dom": "^16.7.0",
-    "sanitize.css": "^8.0.0",
-    "styletron-engine-atomic": "^1.0.13",
-    "styletron-react": "^4.4.4",
-    "styletron-standard": "^2.0.1"
+    "react-redux": "^6.0.0",
+    "react-transition-group-plus": "^0.5.3",
+    "redux": "^4.0.1",
+    "sanitize.css": "^8.0.0"
   }
 }

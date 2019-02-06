@@ -1,14 +1,17 @@
 import "@babel/polyfill";
 import 'sanitize.css';
 import "./globalStyles.styl";
+import "gsap";
+import { Provider } from "react-redux";
 import React from "react";
 import { render } from "react-dom";
-import { StyletronProvider } from "app/components/StyletronProvider";
+
+import store from "app/store";
 
 import App from "app";
 
 render((
-    <StyletronProvider>
+    <Provider store={store}>
         <App/>
-    </StyletronProvider>
+    </Provider>
 ), document.getElementById("app"));

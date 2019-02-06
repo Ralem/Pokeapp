@@ -1,0 +1,60 @@
+.PokemonDisplay
+    position relative
+    display flex
+    flex-flow column wrap
+    justify-content space-between
+    width 190px
+    height @width
+    margin 20px
+    border-radius 25px
+    overflow hidden
+    background-color #525252
+    transform translate3d(0, 0, 0)
+    user-select none
+
+.PokemonDisplay-img
+    display block
+    width 90px
+    height @width
+    margin 0 auto
+    margin-bottom 10px
+    transform-origin center
+    transition 0.3s ease-in-out
+    cursor pointer
+    user-select none
+
+    &:hover
+        transform scale(1.4)
+
+.PokemonDisplay-number
+.PokemonDisplay-name
+    display block
+    width 100%
+    font-weight 700
+    text-align center
+    text-transform uppercase
+    color #fff
+    user-select none
+
+.PokemonDisplay-number
+    margin 0
+    margin-top 10px
+
+.PokemonDisplay-name
+        margin-top 15px
+        color #525252
+
+.PokemonDisplay-controls
+    position relative
+    display flex
+    flex-flow row wrap
+    justify-content center
+    width 100%
+    background-color #fff
+
+.PokemonDisplay-CapturedSelect
+    position absolute
+    left 50%
+    top 0
+    transform translate(-50%, -50%)
+    transform-origin center

@@ -8,9 +8,10 @@ const UglifyjsWebpackPlugin = require("uglifyjs-webpack-plugin");
 const webpackMerge = require("webpack-merge");
 const baseWebpackConfig = require("./base.webpack.config");
 const CopyWebpackPlugin = require("copy-webpack-plugin");
-const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin')
+const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 
-const DIR_DIST = "../dist";
+const DIR_DIST = "../docs";
 const PUBLIC_PATH = "/";
 const ASSETS_DIR = "static";
 
@@ -27,17 +28,32 @@ module.exports = webpackMerge(baseWebpackConfig, {
             new UglifyjsWebpackPlugin({
                 cache: true,
                 parallel: true,
-                sourceMap: true
             }),
-            new OptimizeCSSAssetsPlugin()
+            new OptimizeCSSAssetsPlugin({})
         ],
         splitChunks: {
-            chunks: "all"
+            chunks: "all",
+            cacheGroups: {
+                styles: {
+                    name: 'main',
+                    test: /\.styl(us)?$/,
+                    chunks: 'all',
+                    enforce: true
+                }
+            },
         }
     },
     module: {
         // Load files w/ url-loader
         rules: [
+            {
+                test: /\.styl(us)?$/,
+                use: [
+                    MiniCssExtractPlugin.loader,
+                    "css-loader",
+                    "stylus-loader"
+                ]
+            },
             {
                 test: /\.(png|jpg|gif)$/i,
                 loader: 'url-loader',
@@ -65,6 +81,9 @@ module.exports = webpackMerge(baseWebpackConfig, {
         // Define env global
         new webpack.DefinePlugin({
             "process.env": "'prod'"
+        }),
+        new MiniCssExtractPlugin({
+            filename: `${ASSETS_DIR}/css/[name].[hash].css`,
         }),
         // Add static files to build
         new CopyWebpackPlugin([
