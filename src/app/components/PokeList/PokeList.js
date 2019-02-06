@@ -12,10 +12,9 @@ const PokeList = React.forwardRef(({ captured, pokemon, showCaptured }, ref) => 
                 showCaptured
                     ? (
                         captured.map(c => {
-                            const p = JSON.parse(c);
                             return <PokemonDisplayContainer
-                                key={`poke-${p.name}`}
-                                pokemon={p}
+                                key={`poke-${c.name}`}
+                                pokemon={c}
                             />
                         })
                     )

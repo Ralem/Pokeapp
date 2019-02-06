@@ -16,7 +16,7 @@ export default function(state = initialState, { type, payload }){
                 ...state,
                 selected: [
                     // Filter state.selected then destructure the array
-                    ...state.selected.filter(selected => selected !== payload)
+                    ...state.selected.filter(selected => selected.name !== payload.name || selected.id !== payload.id)
                 ]
             };
     }

@@ -10,12 +10,15 @@ import {
 } from "actions/actions_captured";
 
 import CapturedSelect from "./CapturedSelect";
+import WhitSelectDetection from "./WhitSelectDetection";
 
 class CapturedSelectContainer extends React.Component {
     static propTypes = {
         addClass: PropTypes.string,
         capturedAdd: PropTypes.func,
         capturedRemove: PropTypes.func,
+        // isSelected provided by WhitSelectDetection
+        isSelected: PropTypes.bool,
         pokemon: PropTypes.shape({
             name: PropTypes.string,
             url: PropTypes.string,
@@ -27,14 +30,8 @@ class CapturedSelectContainer extends React.Component {
         showTooltip: true
     };
     state = {
-        isSelected: false,
         showTooltip: false
     };
-    static getDerivedStateFromProps({ pokemon, selected }) {
-        return {
-            isSelected: selected.indexOf(JSON.stringify(pokemon)) > -1
-        };
-    }
     constructor() {
         super();
         this.hideTooltip = this.hideTooltip.bind(this);
@@ -48,16 +45,16 @@ class CapturedSelectContainer extends React.Component {
         this.setState({ showTooltip: true });
     }
     toggleSelection(){
-        const isSelected = this.state.isSelected;
+        const isSelected = this.props.isSelected;
         const {
             capturedAdd,
             capturedRemove,
             pokemon
         } = this.props;
         if (!isSelected) {
-            capturedAdd(JSON.stringify(pokemon));
+            capturedAdd(pokemon);
         } else {
-            capturedRemove(JSON.stringify(pokemon));
+            capturedRemove(pokemon);
         }
     }
     render(){
@@ -67,7 +64,7 @@ class CapturedSelectContainer extends React.Component {
                 onClick={this.toggleSelection}
                 onMouseEnter={this.showTooltip}
                 onMouseLeave={this.hideTooltip}
-                selected={this.state.isSelected}
+                selected={this.props.isSelected}
                 showTooltip={
                     true &&
                     !isMobile.phone &&
@@ -76,9 +73,9 @@ class CapturedSelectContainer extends React.Component {
                     this.props.showTooltip
                 }
                 toolTipText={
-                    !this.state.isSelected
-                        ? "Add to captured pokemon"
-                        : "Remove captured pokemon"
+                    !this.props.isSelected
+                        ? "Capture Pokemon"
+                        : "Release Pokemon"
                 }
             />
         );
@@ -102,4 +99,4 @@ function mapStateToProps({
     };
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(CapturedSelectContainer);
+export default connect(mapStateToProps, mapDispatchToProps)(WhitSelectDetection(CapturedSelectContainer));

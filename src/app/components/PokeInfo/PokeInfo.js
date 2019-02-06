@@ -29,11 +29,9 @@ const PokeInfo = ({ pokemon }) => {
                         <div className="PokeInfo-picture-controls">
                             <CapturedSelectContainer
                                 addClass="PokeInfo-picture-controls-CapturedSelect"
-                                pokemon={{
-                                    name: pokemon.name,
-                                    url: pokemon.url
-                                }}
+                                pokemon={pokemon}
                             />
+                            <p className="PokeInfo-picture-controls-legend">Capture Pokemon</p>
                         </div>
                     </div>
                 </div>

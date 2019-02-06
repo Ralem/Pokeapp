@@ -1,7 +1,7 @@
 import PropTypes from "prop-types";
 import React from "react";
 
-import { CapturedSelectContainer } from "components/CapturedSelect";
+import { CapturedSelectDisplay } from "components/CapturedSelect";
 import "./PokemonDisplay.styl";
 
 const spriteSources = {
@@ -32,7 +32,7 @@ const PokemonDisplay = React.forwardRef(({ pokemon, onClick, onImgClick }, ref) 
                 src={spriteSources.official.replace(/\$pkid/g, id.toString().padStart(3, "0"))}
             ></img>
             <div className="PokemonDisplay-controls">
-                <CapturedSelectContainer
+                <CapturedSelectDisplay
                     addClass={"PokemonDisplay-CapturedSelect"}
                     pokemon={pokemon}
                 />
