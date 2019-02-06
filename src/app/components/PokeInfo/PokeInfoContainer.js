@@ -36,6 +36,9 @@ export class PokeInfoContainer extends React.Component {
             });
         }
     }
+    componentDidMount(){
+        this.getPokeInfo();
+    }
     componentDidUpdate({ current: prevCurrent }){
         if (this.props.current !== prevCurrent) {
             this.getPokeInfo();
