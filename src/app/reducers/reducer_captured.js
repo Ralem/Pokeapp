@@ -12,12 +12,10 @@ export default function(state = initialState, { type, payload }){
         case CAPTURED_ADD:
             return { ...state, selected: { ...state.selected, [payload.name]: payload } };
         case CAPTURED_REMOVE:
+            const { [payload.name]: toRemove, ...selectedLeft } = state.selected;
             return {
                 ...state,
-                selected: Object.entries(state.selected).reduce((newSelected, [ name, pokemon ]) => {
-                    if (name !== payload.name) newSelected[name] = pokemon;
-                    return newSelected;
-                }, {})
+                selected: { ...selectedLeft }
             };
     }
     return state;
