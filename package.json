@@ -57,10 +57,13 @@
   "dependencies": {
     "@babel/polyfill": "^7.2.5",
     "axios": "^0.18.0",
+    "gsap": "^2.0.2",
+    "ismobilejs": "^0.5.1",
     "nib": "^1.1.2",
     "react": "^16.7.0",
     "react-dom": "^16.7.0",
     "react-redux": "^6.0.0",
+    "react-transition-group-plus": "^0.5.3",
     "redux": "^4.0.1",
     "sanitize.css": "^8.0.0"
   }

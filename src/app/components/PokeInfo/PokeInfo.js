@@ -1,9 +1,10 @@
 import PropTypes from "prop-types";
 import React from "react";
 
-import "./PokeInfo.styl";
-
 import { PokeTypeBadge } from "components/PokeTypeBadge";
+import { CapturedSelectContainer } from "components/CapturedSelect";
+
+import "./PokeInfo.styl";
 
 const spriteSources = {
     // Pad 0
@@ -18,10 +19,20 @@ const PokeInfo = ({ pokemon }) => {
         <div className="PokeInfo">
             <div className="PokeInfo-body">
                 <h2 className="PokeInfo-title">
-                    {pokemon.name} #{formatedId}
+                    <span className="PokeInfo-title-wrapper">
+                        {pokemon.name} #{formatedId}
+                    </span>
                 </h2>
                 <div className="PokeInfo-picture">
-                    <img src={spriteSources.official.replace(/\$pkid/, formatedId)} className="PokeInfo-img" />
+                    <div className="PokeInfo-picture-wrapper">
+                        <img src={spriteSources.official.replace(/\$pkid/, formatedId)} className="PokeInfo-img" />
+                        <div className="PokeInfo-picture-controls">
+                            <CapturedSelectContainer
+                                addClass="PokeInfo-picture-controls-CapturedSelect"
+                                pokemon={pokemon}
+                            />
+                        </div>
+                    </div>
                 </div>
                 <div className="PokeInfo-data">
                     <p className="PokeInfo-subtitle">Stats</p>
