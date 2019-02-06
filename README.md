@@ -1,4 +1,4 @@
-# A Death Simple Pokemon Api Consumer
+# A Dead Simple Pokemon Api Consumer
 
 ## Version Alpha 0
 
