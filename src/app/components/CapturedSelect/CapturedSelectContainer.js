@@ -18,6 +18,7 @@ class CapturedSelectContainer extends React.Component {
         capturedRemove: PropTypes.func,
         pokemon: PropTypes.shape({
             name: PropTypes.string,
+            url: PropTypes.string,
         }).isRequired,
         selected: PropTypes.array,
         showTooltip: PropTypes.bool
@@ -31,7 +32,7 @@ class CapturedSelectContainer extends React.Component {
     };
     static getDerivedStateFromProps({ pokemon, selected }) {
         return {
-            isSelected: selected.indexOf(pokemon.name) > -1
+            isSelected: selected.indexOf(JSON.stringify(pokemon)) > -1
         };
     }
     constructor() {
@@ -54,9 +55,9 @@ class CapturedSelectContainer extends React.Component {
             pokemon
         } = this.props;
         if (!isSelected) {
-            capturedAdd(pokemon.name);
+            capturedAdd(JSON.stringify(pokemon));
         } else {
-            capturedRemove(pokemon.name);
+            capturedRemove(JSON.stringify(pokemon));
         }
     }
     render(){

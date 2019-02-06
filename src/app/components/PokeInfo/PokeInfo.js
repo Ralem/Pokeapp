@@ -29,7 +29,10 @@ const PokeInfo = ({ pokemon }) => {
                         <div className="PokeInfo-picture-controls">
                             <CapturedSelectContainer
                                 addClass="PokeInfo-picture-controls-CapturedSelect"
-                                pokemon={pokemon}
+                                pokemon={{
+                                    name: pokemon.name,
+                                    url: pokemon.url
+                                }}
                             />
                         </div>
                     </div>

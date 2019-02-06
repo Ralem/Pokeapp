@@ -22,7 +22,10 @@ export class PokeInfoContainer extends React.Component {
             const request = await axios.get(`https://pokeapi.co/api/v2/pokemon/${current}`);
             this.setState({
                 onRequest: false,
-                pokemon: request.data,
+                pokemon: {
+                    ...request.data,
+                    url: `https://pokeapi.co/api/v2/pokemon/${request.data.id}/`
+                },
             });
             this.onRequest = false;
         } catch (error) {

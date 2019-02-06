@@ -7,7 +7,8 @@ import PokeList from "./PokeList";
 
 class PokeListContainer extends React.Component {
     static propTypes = {
-        selected: PropTypes.array
+        selected: PropTypes.array,
+        showCaptured: PropTypes.bool
     }
     PokeListRef = React.createRef();
     requesting = false;
@@ -91,6 +92,7 @@ class PokeListContainer extends React.Component {
                 captured={this.props.selected}
                 pokemon={this.state.pokemon}
                 ref={this.PokeListRef}
+                showCaptured={this.props.showCaptured}
             />
         );
     }
@@ -98,12 +100,16 @@ class PokeListContainer extends React.Component {
 
 // Get selected from store
 function mapStateToProps({
+    app: {
+        showCaptured
+    },
     captured: {
         selected
     }
 }) {
     return {
-        selected
+        selected,
+        showCaptured
     };
 };
 
