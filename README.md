@@ -4,10 +4,10 @@
 
 ### To Do
 
-[ ] Add input to dispatch infoCurrentSet
-[ ] Add filter controls on Captured View
-[ ] Add basic loader component on PokeInfoContainer.getPokeInfo to handle load and Network errors
-[ ] Add placeholder until img is fully loaded
+- [ ] Add input to dispatch infoCurrentSet
+- [ ] Add filter controls on Captured View
+- [ ] Add basic loader component on PokeInfoContainer.getPokeInfo to handle load and Network errors
+- [ ] Add placeholder until img is fully loaded
 
 ##### PD: I'll be working until the weekend, in case you want to see the progress
 
