@@ -74,10 +74,10 @@ class PokeListContainer extends React.Component {
         }
     }
     addEvents(){
-        document.querySelector(".App").addEventListener("scroll", this.loadMore);
+        document.querySelector(".ViewSwitch").addEventListener("scroll", this.loadMore);
     }
     removeEvents(){
-        document.querySelector(".App").removeEventListener("scroll", this.loadMore);
+        document.querySelector(".ViewSwitch").removeEventListener("scroll", this.loadMore);
     }
     async componentDidMount(){
         await this.getPokemonList();

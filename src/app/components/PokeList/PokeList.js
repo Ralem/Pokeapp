@@ -4,27 +4,16 @@ import React from "react";
 
 import { PokemonDisplayContainer } from "components/PokemonDisplay";
 
-const PokeList = React.forwardRef(({ captured, pokemon, showCaptured }, ref) => {
+const PokeList = React.forwardRef(({ pokemon }, ref) => {
     return (
         <div className={"PokeList"} ref={ref}>
             {
-                showCaptured
-                    ? (
-                        (Object.entries(captured)).sort((a, b) => a[1].id - b[1].id).map(([ name, pokemon ]) => (
-                            <PokemonDisplayContainer
-                                key={`pokemon-${name}`}
-                                pokemon={pokemon}
-                            />
-                        ))
-                    )
-                    : (
-                        pokemon.map(p => (
-                            <PokemonDisplayContainer
-                                key={`poke-${p.name}`}
-                                pokemon={p}
-                            />
-                        ))
-                    )
+                pokemon.map(p => (
+                    <PokemonDisplayContainer
+                        key={`poke-${p.name}`}
+                        pokemon={p}
+                    />
+                ))
             }
         </div>
     )
