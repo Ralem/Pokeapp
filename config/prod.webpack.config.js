@@ -11,7 +11,7 @@ const CopyWebpackPlugin = require("copy-webpack-plugin");
 const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 
-const DIR_DIST = "../dist";
+const DIR_DIST = "../docs";
 const PUBLIC_PATH = "/";
 const ASSETS_DIR = "static";
 
