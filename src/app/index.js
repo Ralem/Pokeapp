@@ -1,6 +1,7 @@
 import "./app.styl";
 import React, { Component } from "react";
 
+import { AppOverlayContainer } from "components/AppOverlay";
 import { CapturedToggle } from "components/CapturedToggle";
 import { PokeListContainer } from "components/PokeList";
 import { PokeTitle } from "components/PokeTitle";
@@ -14,6 +15,7 @@ class App extends Component {
                 <CapturedToggle/>
                 <PokeInfoContainer/>
                 <PokeListContainer/>
+                <AppOverlayContainer/>
             </div>
         );
     }
