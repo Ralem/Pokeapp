@@ -16,7 +16,6 @@ class CapturedSelectContainer extends React.Component {
         capturedRemove: PropTypes.func,
         pokemon: PropTypes.shape({
             name: PropTypes.string,
-            url: PropTypes.string
         }).isRequired,
         selected: PropTypes.array
     };
