@@ -12,16 +12,26 @@ const WhitSelectDetection = WrappedComponent => {
                 name: PropTypes.string,
                 url: PropTypes.string,
             }).isRequired,
-            selected: PropTypes.array.isRequired
+            selected: PropTypes.object.isRequired
         };
         state = {
             isSelected: false
         }
-        static getDerivedStateFromProps({ pokemon, selected }) {
-            const foundSelected = selected.find(s => s.name === pokemon.name || s.id === pokemon.id);
-            return {
-                isSelected: foundSelected !== undefined
-            };
+        isSelected(pokemon, selectedPokemon) {
+            this.setState({
+                isSelected: selectedPokemon[pokemon.name] !== undefined
+            })
+        }
+        componentDidMount() {
+            this.isSelected(this.props.pokemon, this.props.selected);
+        }
+        componentDidUpdate({ pokemon: prevPokemon, selected: prevSelected }) {
+            if (
+                this.props.pokemon !== prevPokemon ||
+                this.props.selected !== prevSelected
+            ) {
+                this.isSelected(this.props.pokemon, this.props.selected);
+            }
         }
         render() {
             return (

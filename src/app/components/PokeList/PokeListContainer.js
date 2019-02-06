@@ -7,7 +7,7 @@ import PokeList from "./PokeList";
 
 class PokeListContainer extends React.Component {
     static propTypes = {
-        selected: PropTypes.array,
+        selected: PropTypes.object,
         showCaptured: PropTypes.bool
     }
     PokeListRef = React.createRef();

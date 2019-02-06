@@ -23,7 +23,7 @@ class CapturedSelectContainer extends React.Component {
             name: PropTypes.string,
             url: PropTypes.string,
         }).isRequired,
-        selected: PropTypes.array,
+        selected: PropTypes.object,
         showTooltip: PropTypes.bool
     };
     static defaultProps = {
@@ -52,9 +52,9 @@ class CapturedSelectContainer extends React.Component {
             pokemon
         } = this.props;
         if (!isSelected) {
-            capturedAdd(pokemon);
+            capturedAdd((pokemon));
         } else {
-            capturedRemove(pokemon);
+            capturedRemove((pokemon));
         }
     }
     render(){
@@ -64,7 +64,7 @@ class CapturedSelectContainer extends React.Component {
                 onClick={this.toggleSelection}
                 onMouseEnter={this.showTooltip}
                 onMouseLeave={this.hideTooltip}
-                selected={this.props.isSelected}
+                isSelected={this.props.isSelected}
                 showTooltip={
                     true &&
                     !isMobile.phone &&

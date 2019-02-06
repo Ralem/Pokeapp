@@ -28,7 +28,9 @@ const PokemonDisplay = React.forwardRef(({ pokemon, onClick, onImgClick }, ref) 
             <p className="PokemonDisplay-number">{id.toString().padStart(3, "0")}</p>
             <img
                 className="PokemonDisplay-img"
+                draggable={false}
                 onClick={onImgClick}
+                onDragStart={() => false}
                 src={spriteSources.official.replace(/\$pkid/g, id.toString().padStart(3, "0"))}
             ></img>
             <div className="PokemonDisplay-controls">

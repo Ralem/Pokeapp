@@ -12,12 +12,12 @@ const CapturedSelect = ({
     onClick,
     onMouseEnter,
     onMouseLeave,
-    selected,
+    isSelected,
     showTooltip,
     toolTipText
 }) => (
     <div
-        className={`CapturedSelect ${selected ? "CapturedSelect--selected" : ""} ${addClass || ""}`}
+        className={`CapturedSelect ${isSelected ? "CapturedSelect--selected" : ""} ${addClass || ""}`}
         onClick={onClick}
         onMouseEnter={onMouseEnter}
         onMouseLeave={onMouseLeave}
@@ -44,7 +44,7 @@ CapturedSelect.propTypes = {
     onClick: PropTypes.func,
     onMouseEnter: PropTypes.func,
     onMouseLeave: PropTypes.func,
-    selected: PropTypes.bool,
+    isSelected: PropTypes.bool,
     showTooltip: PropTypes.bool,
     toolTipText: PropTypes.string
 };

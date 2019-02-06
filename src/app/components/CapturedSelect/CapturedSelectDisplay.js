@@ -11,8 +11,8 @@ class CapturedSelectDisplay extends React.Component {
         addClass: PropTypes.string,
         // isSelected provided by WhitSelectDetection
         isSelected: PropTypes.bool,
-        selected: PropTypes.array,
-        showTooltip: PropTypes.string
+        selected: PropTypes.object,
+        showTooltip: PropTypes.bool
     };
     static defaultProps = {
         showTooltip: true
@@ -36,7 +36,7 @@ class CapturedSelectDisplay extends React.Component {
             addClass={this.props.addClass}
             onMouseEnter={this.showTooltip}
             onMouseLeave={this.hideTooltip}
-            selected={this.props.isSelected}
+            isSelected={this.props.isSelected}
             showTooltip={
                 !isMobile.phone &&
                 !isMobile.tablet &&
