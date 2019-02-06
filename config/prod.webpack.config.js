@@ -12,7 +12,7 @@ const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 
 const DIR_DIST = "../docs";
-const PUBLIC_PATH = "/Pokeapp";
+const PUBLIC_PATH = "/Pokeapp/";
 const ASSETS_DIR = "static";
 
 module.exports = webpackMerge(baseWebpackConfig, {
