@@ -1,0 +1,22 @@
+placeholder()
+    &::-webkit-input-placeholder
+        {block}
+    &:-ms-input-placeholder
+        {block}
+    &::-moz-placeholder
+        {block}
+    &:-moz-placeholder
+        {block}
+.Input
+    position relative
+    display inline-block
+    width 100%
+    outline none
+    padding-bottom 5px
+    border 0
+    border-bottom 1px solid black
+
+    +placeholder()
+        font-weight 500
+        font-style italic
+        color #525252
