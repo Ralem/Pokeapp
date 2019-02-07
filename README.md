@@ -1,4 +1,4 @@
-# A Dead Simple Pokemon Api Consumer
+# A Simple Pokemon Api Consumer
 
 Live at https://ralem.github.io/Pokeapp/
 
